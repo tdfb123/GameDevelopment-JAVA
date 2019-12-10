@@ -1,3 +1,5 @@
+package graficos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -8,20 +10,26 @@ public class Game extends Canvas implements Runnable{
     public static JFrame frame;
     private Thread thread;
     private boolean isRunning = true;
-    private final int WIDTH = 240;
+    private final int WIDTH = 240;//final porque é uma constate e não sofre alteração
     private final int HEIGTH = 160;
     private final int SCALE = 3;
+    private int x = 0;
 
     private BufferedImage image;
 
+    private Spritesheet sheet;
+    private BufferedImage player;
+
     public Game(){
+        sheet = new Spritesheet("/spritesheet.png");
+        player = sheet.getSprite(0, 0, 16, 16);
         setPreferredSize(new Dimension(WIDTH*SCALE,HEIGTH*SCALE));
         initFrame();
         image = new BufferedImage(WIDTH, HEIGTH,BufferedImage.TYPE_INT_RGB);
     }
 
     public void initFrame(){
-        frame = new JFrame("Game #1");
+        frame = new JFrame("Desenvolvimento beta 0.1");
         frame.add(this);
         frame.setResizable(false);//impede que o jogador aumente a janela
         frame.pack();
@@ -52,6 +60,7 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void tick() {//Método da lógica do jogo
+        x+=2;
 
 
     }
@@ -63,12 +72,14 @@ public class Game extends Canvas implements Runnable{
             return;//como se fosse um break.
         }
         Graphics g = image.getGraphics();
-        g.setColor(new Color(255, 0, 0));
+        g.setColor(new Color(100, 10, 160));
         g.fillRect(0, 0,WIDTH, HEIGTH);
 
-        g.setFont(new Font("Arial", Font.BOLD,20));
-        g.setColor(Color.white);
-        g.drawString("Início", 55, 60);
+        g.drawImage(player,x,20,null);
+        g.drawImage(player,x,40,null);
+        g.drawImage(player,5,20,null);
+
+        g.dispose();//método de otimização
         g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0,WIDTH*SCALE, HEIGTH*SCALE,null);
         bs.show();
