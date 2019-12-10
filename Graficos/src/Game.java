@@ -8,9 +8,9 @@ public class Game extends Canvas implements Runnable{
     public static JFrame frame;
     private Thread thread;
     private boolean isRunning = true;
-    private final int WIDTH = 160;
-    private final int HEIGTH = 120;
-    private final int SCALE = 4;
+    private final int WIDTH = 240;
+    private final int HEIGTH = 160;
+    private final int SCALE = 3;
 
     private BufferedImage image;
 
@@ -37,8 +37,13 @@ public class Game extends Canvas implements Runnable{
 
     }
 
-    public synchronized  void stop() {
-
+    public synchronized  void stop() {//certifica que quando ocorrer algum erro no jogo, todas as threads sejam finalizadas!
+        isRunning = false;
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String args[]) {
@@ -60,6 +65,10 @@ public class Game extends Canvas implements Runnable{
         Graphics g = image.getGraphics();
         g.setColor(new Color(255, 0, 0));
         g.fillRect(0, 0,WIDTH, HEIGTH);
+
+        g.setFont(new Font("Arial", Font.BOLD,20));
+        g.setColor(Color.white);
+        g.drawString("Início", 55, 60);
         g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0,WIDTH*SCALE, HEIGTH*SCALE,null);
         bs.show();
@@ -91,6 +100,8 @@ public class Game extends Canvas implements Runnable{
             }
 
         }
+
+        stop();
     }
 }
 
