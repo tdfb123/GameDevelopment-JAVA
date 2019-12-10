@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 public class Game extends Canvas implements Runnable{
 
@@ -10,9 +12,12 @@ public class Game extends Canvas implements Runnable{
     private final int HEIGTH = 120;
     private final int SCALE = 4;
 
+    private BufferedImage image;
+
     public Game(){
         setPreferredSize(new Dimension(WIDTH*SCALE,HEIGTH*SCALE));
         initFrame();
+        image = new BufferedImage(WIDTH, HEIGTH,BufferedImage.TYPE_INT_RGB);
     }
 
     public void initFrame(){
@@ -41,13 +46,23 @@ public class Game extends Canvas implements Runnable{
         game.start();//aqui inicia o jogo
     }
 
-    public void tick() {//lógica do jogo
+    public void tick() {//Método da lógica do jogo
 
 
     }
 
-    public void render() {//graficos
-
+    public void render() {//Método dos graficos
+        BufferStrategy bs = this.getBufferStrategy();
+        if(bs == null){
+            this.createBufferStrategy(3);//colocar entre 2 ou 3
+            return;//como se fosse um break.
+        }
+        Graphics g = image.getGraphics();
+        g.setColor(new Color(255, 0, 0));
+        g.fillRect(0, 0,WIDTH, HEIGTH);
+        g = bs.getDrawGraphics();
+        g.drawImage(image, 0, 0,WIDTH*SCALE, HEIGTH*SCALE,null);
+        bs.show();
 
     }
 
