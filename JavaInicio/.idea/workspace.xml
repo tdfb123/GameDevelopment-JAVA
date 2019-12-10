@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="02382c6a-dcbc-4004-8d67-60bbcf69cffe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UiVtw8Daa9ZJy0rXGldUD6900M" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575838303344" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="OperadoresMatematicos" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Lopping">
+    <configuration name="Lopping" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Lopping.Lopping" />
+      <module name="DankiCodeCurso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Lopping.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperadoresMatematicos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OperadoresMatematicos.OperadoresMatematicos" />
+      <module name="DankiCodeCurso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="OperadoresMatematicos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SwitchECase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwitchECase.SwitchECase" />
+      <module name="DankiCodeCurso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SwitchECase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Lopping" />
+        <item itemvalue="Application.OperadoresMatematicos" />
+        <item itemvalue="Application.SwitchECase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02382c6a-dcbc-4004-8d67-60bbcf69cffe" name="Default Changelist" comment="" />
+      <created>1575766077633</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575766077633</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="931" height="197" key="GridCell.Tab.0.bottom" timestamp="1575843178984">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state width="931" height="197" key="GridCell.Tab.0.bottom/0.0.2048.1050@0.0.2048.1050" timestamp="1575843178984" />
+    <state width="931" height="197" key="GridCell.Tab.0.center" timestamp="1575843178984">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state width="931" height="197" key="GridCell.Tab.0.center/0.0.2048.1050@0.0.2048.1050" timestamp="1575843178984" />
+    <state width="931" height="197" key="GridCell.Tab.0.left" timestamp="1575843178984">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state width="931" height="197" key="GridCell.Tab.0.left/0.0.2048.1050@0.0.2048.1050" timestamp="1575843178984" />
+    <state width="931" height="197" key="GridCell.Tab.0.right" timestamp="1575843178984">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state width="931" height="197" key="GridCell.Tab.0.right/0.0.2048.1050@0.0.2048.1050" timestamp="1575843178984" />
+    <state x="730" y="244" key="SettingsEditor" timestamp="1575840007320">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state x="730" y="244" key="SettingsEditor/0.0.2048.1050@0.0.2048.1050" timestamp="1575840007320" />
+    <state x="725" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1575839625064">
+      <screen x="0" y="0" width="2048" height="1050" />
+    </state>
+    <state x="725" y="349" key="com.intellij.ide.util.TipDialog/0.0.2048.1050@0.0.2048.1050" timestamp="1575839625064" />
+  </component>
+</project>
