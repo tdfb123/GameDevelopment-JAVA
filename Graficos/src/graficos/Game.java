@@ -1,5 +1,7 @@
 package graficos;
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -60,7 +62,6 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void tick() {//Método da lógica do jogo
-        x+=2;
 
 
     }
@@ -75,11 +76,13 @@ public class Game extends Canvas implements Runnable{
         g.setColor(new Color(100, 10, 160));
         g.fillRect(0, 0,WIDTH, HEIGTH);
 
-        g.drawImage(player,x,20,null);
-        g.drawImage(player,x,40,null);
-        g.drawImage(player,5,20,null);
-
-        g.dispose();//método de otimização
+        //RENDERIZAÇÃO DO JOGO
+        Graphics2D g2 = (Graphics2D) g;//isso transforma a variável g em Graphics 2D, o que permite tecnicas mais avançadas tipo animação e etc...
+        g2.setColor(new Color(0,0,180));
+        g2.fillRect(0,0,WIDTH,HEIGTH);
+        g2.rotate(Math.toRadians(90),90+8,90+8);//isso rotaciona o personagem(sprite em 90 graus, o 90+8 é a posição e é porque a sprite possui 16 de tamanho, por isso os +8, e a rotação tem de ser feita no centro da imagem.
+        g2.drawImage(player,90,90,null);//se a sprite for colocada por último, ela fica por cima de qualquer sprite ou cenário, cor de fundo.
+        g2.dispose();//método de otimização
         g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0,WIDTH*SCALE, HEIGTH*SCALE,null);
         bs.show();
