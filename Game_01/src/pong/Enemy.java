@@ -10,7 +10,7 @@ public class Enemy {
         this.x = x;
         this.y = y;
         this.width = 40;
-        this.height = 10;
+        this.height = 5;
     }
 
     public void tick(){

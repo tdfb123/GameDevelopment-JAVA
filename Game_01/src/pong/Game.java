@@ -22,7 +22,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
         this.addKeyListener(this);
-        player = new Player(100,HEIGHT-10);
+        player = new Player(100,HEIGHT-5);
         enemy = new Enemy(100,0);
         ball = new Ball(100,HEIGHT / 2 - 1);
 
@@ -43,7 +43,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     }
 
-    public void tick() {
+    public void tick() throws InterruptedException {
         player.tick();
         enemy.tick();
         ball.tick();
@@ -74,7 +74,11 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public void run() {
         while (true) {
             requestFocus();//isso foca a janela do jogo automaticamente ao ser aberta.
-            tick();
+            try {
+                tick();//foi inserido try/cat pela pequena pausa que acontece quando um ponto é feito para ambos os lados, para poder se preparar para o proximo round
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             render();
             try {
                 Thread.sleep(1000/60);

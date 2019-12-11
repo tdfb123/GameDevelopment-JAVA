@@ -4,6 +4,7 @@ import org.w3c.dom.css.Rect;
 
 import java.awt.*;
 import java.util.Random;
+import java.time.*;
 
 public class Ball {
 
@@ -11,18 +12,20 @@ public class Ball {
     public int width, height;
 
     public double dx, dy;//direção x e y.
-    public double speed = 0.7;
+    public double speed = 1.2;
 
     public Ball(int x, int y){
         this.x = x;
         this.y = y;
         this.width = 4;//dimensão da bola
         this.height = 4;//dimensão da bola
-        this.dx = new Random().nextGaussian();//método que faz a bola andar na direção
-        this.dy = new Random().nextGaussian();//método que faz a bola andar na direção
+
+        int angle = new Random().nextInt(120 - 45) + 45;//ângulo da direção inicial da bola
+        this.dx = Math.cos(Math.toRadians(angle));//método que faz a bola andar
+        this.dy = Math.sin(Math.toRadians(angle));//método que faz a bola andar
     }
 
-    public void tick(){
+    public void tick() throws InterruptedException {
 
         if(x+(dx*speed) + width >= Game.WIDTH ) {
             dx*=-1;
@@ -32,9 +35,32 @@ public class Ball {
         }
 
          if(y >= Game.HEIGHT){
-             //ponto do inimigo
+             System.out.println("Ponto do inimigo!");
+             new Game();// é usado para resetar o jogo
+             Thread.sleep(1000);//sleep de 1 segundo para poder se preparar para proximo round
+             System.out.println("Recomeçando em: ");
+             Thread.sleep(1000);
+             System.out.println("3");
+             Thread.sleep(1000);
+             System.out.println("2");
+             Thread.sleep(1000);
+             System.out.println("1");
+             Thread.sleep(1000);
+             return;
+
          }else if(y < 0){
-             //ponto do jogador.
+             System.out.println("Ponto nosso! =D");
+             new Game();// é usado para resetar o jogo
+             Thread.sleep(1000);
+             System.out.println("Recomeçando em: ");
+             Thread.sleep(1000);
+             System.out.println("3");
+             Thread.sleep(1000);
+             System.out.println("2");
+             Thread.sleep(1000);
+             System.out.println("1");
+             Thread.sleep(1000);
+             return;
          }
 
         Rectangle bounds = new Rectangle((int)(x+(dx*speed)),(int)(y+(dy*speed)),width,height);
@@ -42,10 +68,19 @@ public class Ball {
         Rectangle boundsEnemy = new Rectangle((int)Game.enemy.x,(int)Game.enemy.y,Game.enemy.width,Game.enemy.height);
 
         if(bounds.intersects(boundsPlayer)) {//colisao com os jogadores
-            dy*=-1;
+            int angle = new Random().nextInt(120 - 45) + 45;//ângulo da direção inicial da bola
+            this.dx = Math.cos(Math.toRadians(angle));//método que faz a bola andar
+            this.dy = Math.sin(Math.toRadians(angle));//método que faz a bola andar
+            if(dy > 0)
+                dy*=-1;
+
 
         }else if(bounds.intersects(boundsEnemy)) {
-            dy*=-1;
+            int angle = new Random().nextInt(120 - 45) + 45;//ângulo da direção inicial da bola
+            this.dx = Math.cos(Math.toRadians(angle));//método que faz a bola andar
+            this.dy = Math.sin(Math.toRadians(angle));//método que faz a bola andar
+            if(dy < 0)
+                dy*=-1;
         }
 
          x+=dx*speed;
