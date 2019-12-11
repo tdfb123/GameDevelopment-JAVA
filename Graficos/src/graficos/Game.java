@@ -20,11 +20,15 @@ public class Game extends Canvas implements Runnable{
     private BufferedImage image;
 
     private Spritesheet sheet;
-    private BufferedImage player;
-
+    private BufferedImage[] player;//Alterado para Array para adicionar 2 sprites agora.
+    private int frames = 0;
+    private int maxFrames = 20;//quanto menor, mais rápido a animação.
+    private int curAnimation = 0, maxAnimation = 2;
     public Game(){
         sheet = new Spritesheet("/spritesheet.png");
-        player = sheet.getSprite(0, 0, 16, 16);
+        player = new BufferedImage[2];//2 animações, por isso 2 de parâmetro
+        player[0] = sheet.getSprite(0,0,16,16);//coordenadas da sprite, isso deve ser verificado no paint.net
+        player[1] = sheet.getSprite(16,0,16,16);//coordenadas da sprite, isso deve ser verificado no paint.net
         setPreferredSize(new Dimension(WIDTH*SCALE,HEIGTH*SCALE));
         initFrame();
         image = new BufferedImage(WIDTH, HEIGTH,BufferedImage.TYPE_INT_RGB);
@@ -62,7 +66,13 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void tick() {//Método da lógica do jogo
-
+        frames++;
+        if(frames > maxFrames)
+            frames = 0;
+        curAnimation++;
+        if(curAnimation >= maxAnimation) {
+            curAnimation = 0;
+        }
 
     }
 
@@ -78,10 +88,7 @@ public class Game extends Canvas implements Runnable{
 
         //RENDERIZAÇÃO DO JOGO
         Graphics2D g2 = (Graphics2D) g;//isso transforma a variável g em Graphics 2D, o que permite tecnicas mais avançadas tipo animação e etc...
-        g2.setColor(new Color(0,0,180));
-        g2.fillRect(0,0,WIDTH,HEIGTH);
-        g2.rotate(Math.toRadians(90),90+8,90+8);//isso rotaciona o personagem(sprite em 90 graus, o 90+8 é a posição e é porque a sprite possui 16 de tamanho, por isso os +8, e a rotação tem de ser feita no centro da imagem.
-        g2.drawImage(player,90,90,null);//se a sprite for colocada por último, ela fica por cima de qualquer sprite ou cenário, cor de fundo.
+        g2.drawImage(player[curAnimation],90,90,null);//se a sprite for colocada por último, ela fica por cima de qualquer sprite ou cenário, cor de fundo.
         g2.dispose();//método de otimização
         g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0,WIDTH*SCALE, HEIGTH*SCALE,null);
