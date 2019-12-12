@@ -1,4 +1,4 @@
-package com.howhellgamming.com.entities;
+package com.howhellgaming.com.entities;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,6 +18,14 @@ public class Entity {
         this.width = width;
         this.height = height;
         this.sprite = sprite;
+    }
+
+    public void setX(int newX){
+        this.x = newX;
+    }
+
+    public void setY(int newY) {
+        this.y = newY;
     }
 
     public int getX(){

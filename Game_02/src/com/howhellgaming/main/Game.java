@@ -1,7 +1,8 @@
-package com.howhellgamming.main;
+package com.howhellgaming.main;
 
-import com.howhellgamming.com.entities.*;
-import com.howhellgamming.graficos.Spritesheet;
+import com.howhellgaming.com.entities.*;
+import com.howhellgaming.graficos.Spritesheet;
+import com.howhellgaming.world.World;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +23,14 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private final int WIDTH = 240;//final porque é uma constate e não sofre alteração
     private final int HEIGTH = 160;
     private final int SCALE = 3;
-    private int x = 0;
 
     private BufferedImage image;
 
     public List<Entity> entities;
-    public Spritesheet spritesheet;
+    public static Spritesheet spritesheet;
+
+    public static World world;
+
     private Player player;
 
 
@@ -37,10 +39,11 @@ public class Game extends Canvas implements Runnable, KeyListener {
         setPreferredSize(new Dimension(WIDTH*SCALE,HEIGTH*SCALE));
         initFrame();
         //Inicializando objetos.
+
         image = new BufferedImage(WIDTH, HEIGTH,BufferedImage.TYPE_INT_RGB);
         entities = new ArrayList<Entity>();
         spritesheet = new Spritesheet("/spritesheet.png");//nome do arquivo de sprite
-
+        world = new World("/map.png");
         player = new Player(0,0,16,16,spritesheet.getSprite(32,0,16,16));
         entities.add(player);
     }
@@ -90,11 +93,12 @@ public class Game extends Canvas implements Runnable, KeyListener {
             return;//como se fosse um break.
         }
         Graphics g = image.getGraphics();
-        g.setColor(new Color(80, 80, 80));
+        g.setColor(new Color(40, 40, 40));
         g.fillRect(0, 0,WIDTH, HEIGTH);
 
         //RENDERIZAÇÃO DO JOGO
         //Graphics2D g2 = (Graphics2D) g;//isso transforma a variável g em Graphics 2D, o que permite tecnicas mais avançadas tipo animação e etc...
+        world.render(g);
         for(int i = 0; i < entities.size(); i++) {
             Entity e = entities.get(i);
             e.render(g);

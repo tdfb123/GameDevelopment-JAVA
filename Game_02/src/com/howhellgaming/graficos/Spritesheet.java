@@ -1,4 +1,4 @@
-package com.howhellgamming.graficos;
+package com.howhellgaming.graficos;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
