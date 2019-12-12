@@ -1,5 +1,8 @@
 package com.howhellgaming.world;
 
+import com.howhellgaming.com.entities.*;
+import com.howhellgaming.main.Game;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -23,20 +26,33 @@ public class World {
             for(int xx = 0; xx < map.getWidth(); xx++){
                 for(int yy = 0; yy < map.getHeight(); yy++) {
                     int pixelAtual = pixels[xx + (yy * map.getWidth())];
-
-                    if(pixelAtual == 0xFF000000){
-                        //floor/mapa
-                        tiles[xx + (yy * WIDTH)] = new FloorTile(xx * 16, yy * 16, Tile.TILE_FLOOR);                    }else if(pixelAtual == 0xFFFFFFFF) {
-                    }else if(pixelAtual == 0xFFFFFFFF){
+                    tiles[xx + (yy * WIDTH)] = new FloorTile(xx * 16, yy * 16, Tile.TILE_FLOOR);
+                    if(pixelAtual == 0xFFFFFFFF){
                         //parede
                         tiles[xx + (yy * WIDTH)] = new FloorTile(xx * 16, yy * 16, Tile.TILE_WALL);
-                    }else if(pixelAtual == 0xFFB6FF00){
+                    }else if(pixelAtual == 0xFF086900){
                         //player
-                        tiles[xx + (yy * WIDTH)] = new FloorTile(xx * 16, yy * 16, Tile.TILE_FLOOR);
-                    }else {
-                        //Floor/chão
-                        tiles[xx + (yy * WIDTH)] = new FloorTile(xx * 16, yy * 16, Tile.TILE_FLOOR);
+                        Game.player.setX(xx*16);
+                        Game.player.setY(yy*16);
+                    }else if(pixelAtual == 0xFFFF1C2B){
+                        //Enemy
+                        Game.entities.add(new Enemy(xx*16,yy*16,16,16,Entity.ENEMY_EN));
+
+                    }else if(pixelAtual == 0xFFB6FF00){
+                        //Weapon
+                        Game.entities.add(new Weapon(xx*16,yy*16,16,16,Entity.WEAPON_EN));
+
+                    }else if(pixelAtual == 0xFFFF006E){
+                        //Life Pack
+                        Game.entities.add(new Lifepack(xx*16,yy*16,16,16,Entity.LIFEPACK_EN));
+
+                    }else if(pixelAtual == 0xFF3F497F){
+                        //Bullet
+                        Game.entities.add(new Bullet(xx*16,yy*16,16,16,Entity.BULLET_EN));
+
                     }
+
+
                 }
             }
         } catch (IOException e) {
