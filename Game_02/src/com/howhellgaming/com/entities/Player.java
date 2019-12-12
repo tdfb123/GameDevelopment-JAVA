@@ -2,6 +2,7 @@ package com.howhellgaming.com.entities;
 
 import com.howhellgaming.main.Game;
 import com.howhellgaming.world.Camera;
+import com.howhellgaming.world.World;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -63,8 +64,8 @@ public class Player extends Entity{
             }
         }
 
-        Camera.x = this.getX() - (Game.WIDTH / 2);
-        Camera.y = this.getY() - (Game.HEIGTH / 2);
+        Camera.x = Camera.clamp(this.getX() - (Game.WIDTH / 2),0, World.WIDTH*16 - Game.WIDTH);
+        Camera.y = Camera.clamp(this.getY() - (Game.HEIGTH / 2), 0,World.HEIGHT*16 - Game.HEIGTH);
 
     }
 

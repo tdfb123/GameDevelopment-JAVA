@@ -65,7 +65,6 @@ public class World {
             for(int yy = 0; yy < HEIGHT; yy++) {
                 Tile tile = tiles[xx + (yy * WIDTH)];
                 tile.render(g);
-
             }
         }
 
