@@ -117,6 +117,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         double delta = 0;
         int frames = 0;
         double timer = System.currentTimeMillis();//retorna o tempo do computador, usamos isso para contagem do fps, mas é opcional.
+        requestFocus();//Método que foca a tela automaticamente
         while(isRunning){
             long now = System.nanoTime();
             delta+= (now - lasTime) / ns;
